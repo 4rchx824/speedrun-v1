@@ -22,7 +22,7 @@ export const noteRouter = createTRPCRouter({
         description: z.string(),
       }),
     )
-    .query(async (opts) => {
+    .mutation(async (opts) => {
       try {
         const { input } = opts;
         const newNote = await db.notes.create({
