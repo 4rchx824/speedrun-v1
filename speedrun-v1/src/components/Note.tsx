@@ -23,8 +23,8 @@ const Note = ({ note }: { note: Note }) => {
 
   return (
     <>
-      <Toaster />
       <div className="flex w-full max-w-sm flex-col rounded-lg border p-4 shadow-lg">
+        <Toaster />
         <div className="flex items-center justify-between space-x-8">
           <input
             className="w-full cursor-text p-2 font-bold"
