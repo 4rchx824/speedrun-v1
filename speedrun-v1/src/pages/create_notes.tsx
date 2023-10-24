@@ -11,10 +11,9 @@ export default function CreateNote() {
 
     const handleCreateNote = async () => {
         try {
-            await notesCreateMutation.mutateAsync({ title, description });
-            setTitle('');
-            setDescription('');
-            router.push('/'); // Navigate back to index page
+            await notesCreateMutation.mutateAsync({ title, description }).then((result) => {
+                router.push('/'); // Navigate back to index page
+            });
         } catch (err) {
             console.error("Error creating note:", err);
         }
@@ -31,7 +30,7 @@ export default function CreateNote() {
                     placeholder="Title"
                     onChange={(e) => setTitle(e.target.value)}
                 />
-                <textarea // Using textarea for description
+                <textarea
                     placeholder="Description"
                     value={description}
                     className="block w-full rounded-md border-0 p-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
